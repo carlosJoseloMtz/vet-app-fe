@@ -4,11 +4,11 @@ Repository for the frontend application for handling vet clinics (and groomings)
 
 ## project initial goals
 
-- [] Managing users (employees)
-- [] Adding customers with their pets
-- [] Point of Service to sell products (simply register sales at the place)
-- [] Notifications for next shots for registered pets
-- [] Basic product management
+- [ ] Managing users (employees)
+- [ ] Adding customers with their pets
+- [ ] Point of Service to sell products (simply register sales at the place)
+- [ ] Notifications for next shots for registered pets
+- [ ] Basic product management
 
 # technical
 
