@@ -1,21 +1,28 @@
-<p align="center">
-  <img width="200" src="https://open-wc.org/hero.png"></img>
-</p>
+# about
 
-## Open-wc Starter App
+Repository for the frontend application for handling vet clinics (and groomings)
 
-[![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
+## project initial goals
 
-## Quickstart
+- [] Managing users (employees)
+- [] Adding customers with their pets
+- [] Point of Service to sell products (simply register sales at the place)
+- [] Notifications for next shots for registered pets
+- [] Basic product management
 
-To get started:
+# technical
 
-```bash
-npm init @open-wc
-# requires node 10 & npm 6 or higher
+This project was generated using the [open web components generator](https://open-wc.org/docs/development/generator/)
+
+## install
+
+Simply run
+
+```
+npm install
 ```
 
-## Scripts
+## scripts
 
 - `start` runs your app for development, reloading on file changes
 - `start:build` runs your app after it has been built using the build command
@@ -24,8 +31,3 @@ npm init @open-wc
 - `lint` runs the linter for your project
 - `format` fixes linting and formatting errors
 
-## Tooling configs
-
-For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
-
-If you customize the configuration a lot, you can consider moving them to individual files.
