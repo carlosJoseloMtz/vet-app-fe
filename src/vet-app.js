@@ -1,8 +1,5 @@
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-button/paper-button.js';
-import '@vaadin/icon';
-import '@vaadin/icons';
-
 
 import { VetApp } from './VetApp.js';
 import { LoginPage } from './pages/login-page.js';
@@ -14,9 +11,12 @@ import { VetCrudModal } from './components/vet-crud-modal.js';
 import { VetIcon } from './components/vet-icon.js';
 import { VetAlert } from './components/vet-alert.js';
 
+// pages
 customElements.define('vet-app', VetApp);
 customElements.define('login-page', LoginPage);
 customElements.define('customers-page', CustomersPage);
+
+// components
 customElements.define('vet-table', VetResponsiveTable);
 customElements.define('vet-button', VetButton);
 customElements.define('customer-form', CreateCustomer);
