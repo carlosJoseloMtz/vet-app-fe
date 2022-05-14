@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { html, css, LitElement } from "lit";
 
 import { CustomerService } from "../services/customer-service.js";
 
@@ -33,6 +33,14 @@ export class CreateCustomer extends LitElement {
     this._messageType = '';
 
     this.customerService = CustomerService();
+  }
+
+  static get styles() {
+    return css`
+    paper-checkbox {
+      margin: 17px 0;
+    }
+    `;
   }
 
   _isEditMode() {
@@ -73,7 +81,7 @@ export class CreateCustomer extends LitElement {
   }
 
   async performTransaction(customerInfo, isEditMode) {
-    
+
     let result = null;
     const isNewCustomer = !isEditMode;
 

@@ -16,6 +16,8 @@
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-checkbox": "^3.1.0",
     "@polymer/paper-input": "^3.2.1",
+    "@vaadin/icon": "^23.0.9",
+    "@vaadin/icons": "^23.0.9",
     "@vaadin/router": "^1.7.4",
     "@vaadin/vaadin-icon": "^23.0.6",
     "@vaadin/vaadin-icons": "^23.0.6",

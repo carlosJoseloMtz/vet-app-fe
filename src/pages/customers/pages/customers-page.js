@@ -1,5 +1,5 @@
-import { css, html, LitElement } from "lit";
-import { CustomerService } from "../services/customer-service.js";
+import { css, html, LitElement } from 'lit';
+import { CustomerService } from '../services/customer-service.js';
 
 
 export class CustomersPage extends LitElement {
@@ -42,11 +42,10 @@ export class CustomersPage extends LitElement {
     this._searchResults = [];
 
     try {
-      const matchingCustomers = 
+      const matchingCustomers =
         await this.customerService.searchCustomer(this._searchFilters);
 
       this._searchResults = matchingCustomers;
-      console.log('results for matching terms', this._searchResults);
     } catch (err) {
       console.error('Erro while trying to fetch customers', err);
     }
@@ -106,27 +105,19 @@ export class CustomersPage extends LitElement {
       return null;
     }
 
-    let customerForm = null;
-
     if (this._customerToEdit == null) {
-      customerForm = html`
-        <customer-form
-          @transaction-successful=${this.hideCustomerForm}
+      return html`
+        <vet-crud-modal
+          @back-click=${this.hideCustomerForm}
         >
-        </customer-form>
-      `;
-    } else if (this._customerToEdit !== null) {
-      customerForm = html`
-        <customer-form
-          customerName=${this._customerToEdit.name}
-          id=${this._customerToEdit.id}
-          phoneNumber=${this._customerToEdit.phoneNumber}
-          email=${this._customerToEdit.email}
-          address=${this._customerToEdit.address}
-          ?optsInNotifications=${this._customerToEdit.optsInNotifications}
-          @transaction-successful=${this.hideCustomerForm}
-        >
-        </customer-form>
+          <h1 slot="title">Customer Info</h1>
+          <div slot="body">
+            <customer-form
+              @transaction-successful=${this.hideCustomerForm}
+            >
+            </customer-form>
+          </div>
+        </vet-crud-modal>
       `;
     }
 
@@ -136,7 +127,20 @@ export class CustomersPage extends LitElement {
       >
         <h1 slot="title">Customer Info</h1>
         <div slot="body">
-          ${customerForm}
+          <customer-form
+            customerName=${this._customerToEdit.name}
+            id=${this._customerToEdit.id}
+            phoneNumber=${this._customerToEdit.phoneNumber}
+            email=${this._customerToEdit.email}
+            address=${this._customerToEdit.address}
+            ?optsInNotifications=${this._customerToEdit.optsInNotifications}
+          >
+          </customer-form>
+          <h2>Doggy information</h2>
+          <customer-pets
+            customerId=${this._customerToEdit.id}
+          >
+          </customer-pets>
         </div>
       </vet-crud-modal>
     `;

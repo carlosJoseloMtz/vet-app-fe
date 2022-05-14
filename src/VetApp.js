@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
-import { Router } from '@vaadin/router';
+import { getRouterInstance } from './router.js';
 
 export class VetApp extends LitElement {
   static get properties() {
     return {
-      router: { type: Object },
+      router: { type: Object, state: true }
     };
   }
 
@@ -13,14 +13,7 @@ export class VetApp extends LitElement {
   }
 
   firstUpdated() {
-    const outlet = this.root.querySelector('#pagearea');
-    console.log('binding router to outlet', outlet);
-    this.router = new Router(outlet);
-
-    this.router.setRoutes([
-      { path: '/login', component: 'login-page' },
-      { path: '/customers', component: 'customers-page' },
-    ]);
+    this.router = getRouterInstance(this.root.querySelector('#pagearea'));
   }
 
   static get styles() {
@@ -42,10 +35,18 @@ export class VetApp extends LitElement {
     `;
   }
 
+  renderMenu() {
+    if (this.router == null) {
+      return null;
+    }
+
+    return html`<vet-menu router=${this.router}></vet-menu>`;
+  }
+
   render() {
     return html`
-      <main>
-        <div id="pagearea"></div>
+      ${this.renderMenu()}
+      <main id="pagearea">
       </main>
     `;
   }
