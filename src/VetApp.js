@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { getRouterInstance } from './router.js';
+import { getCurrentUser } from './utils/session-service.js';
 
 export class VetApp extends LitElement {
   static get properties() {
@@ -58,6 +59,12 @@ export class VetApp extends LitElement {
 
   renderMenu() {
     if (this.router == null) {
+      return null;
+    }
+
+    const user = getCurrentUser();
+
+    if (!user) {
       return null;
     }
 

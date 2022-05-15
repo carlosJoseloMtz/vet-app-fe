@@ -141,17 +141,23 @@ export class VetMenu extends LitElement {
                 @click=${this._handleCloseMenu}
                 @keypress=${this._handleCloseMenuKey}
               >
-                <vet-icon icon="close" label="Close Menu"> </vet-icon>
+                <vet-icon icon="close" label="Close Menu"></vet-icon>
               </button>
             </li>
             <li>
-              <a href="${this.router.urlForPath('/login')}">Login</a>
-            </li>
-            <li>
-              <a href="${this.router.urlForPath('/customers')}">
+              <a href="${this.router.urlForPath('/admin/customers')}">
                 <vet-icon icon="users"> </vet-icon>
                 Customers
               </a>
+            </li>
+            <li>
+              <a href="${this.router.urlForPath('/admin/users/my-profile')}">
+                <vet-icon icon="specialist"> </vet-icon>
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a href="${this.router.urlForPath('/logout')}">Logout</a>
             </li>
           </span>
         </ul>
