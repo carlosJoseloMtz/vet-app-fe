@@ -1,7 +1,6 @@
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement } from 'lit';
 
 export class VetCrudModal extends LitElement {
-
   static get styles() {
     return css`
       :host {
@@ -12,7 +11,7 @@ export class VetCrudModal extends LitElement {
         top: 0;
         left: 0;
         z-index: 1;
-        background-color: var(--primary-color);
+        background-color: var(--secondary-color);
       }
 
       .wrapper {
@@ -37,8 +36,7 @@ export class VetCrudModal extends LitElement {
   }
 
   _handleBackClick() {
-    const event = new CustomEvent('back-click',
-      { bubble: true });
+    const event = new CustomEvent('back-click', { bubble: true });
 
     this.dispatchEvent(event);
   }
@@ -54,11 +52,9 @@ export class VetCrudModal extends LitElement {
             label="Go back"
           >
           </vet-icon>
-          <slot name="title">
-          </slot>
+          <slot name="title"> </slot>
         </div>
-        <slot name="body">
-        </slot>
+        <slot name="body"> </slot>
       </div>
     `;
   }

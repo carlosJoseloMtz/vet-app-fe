@@ -19,7 +19,7 @@ export class VetMenu extends LitElement {
   static get styles() {
     return css`
       :host {
-        background-color: var(--secondary-color);
+        background-color: var(--primary-color);
         display: block;
         box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
         --lumo-icon-size-m: 1em;
@@ -34,7 +34,7 @@ export class VetMenu extends LitElement {
       }
 
       button {
-        background-color: var(--secondary-color);
+        background-color: var(--primary-color);
         border: none;
         display: block;
         text-align: center;
@@ -46,13 +46,13 @@ export class VetMenu extends LitElement {
         text-decoration: none;
         padding: 17px 5px;
         display: block;
-        color: var(--secondary-text-color);
+        color: var(--primary-text-color);
         text-align: center;
       }
 
       a:hover,
       li.responsive-control:hover {
-        background-color: var(--light-secondary-color);
+        background-color: var(--light-primary-color);
         cursor: pointer;
       }
 
@@ -70,11 +70,11 @@ export class VetMenu extends LitElement {
 
       @media screen and (min-width: 1200px) {
         a {
-          border-bottom: 1px solid var(--light-secondary-color);
+          border-bottom: 1px solid var(--light-primary-color);
         }
 
         ul li:nth-child(2) a {
-          border-top: 1px solid var(--light-secondary-color);
+          border-top: 1px solid var(--light-primary-color);
         }
 
         .responsive-control {

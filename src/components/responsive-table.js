@@ -1,5 +1,4 @@
-import { css, html, LitElement } from "lit";
-
+import { css, html, LitElement } from 'lit';
 
 export class VetResponsiveTable extends LitElement {
   static get properties() {
@@ -7,8 +6,8 @@ export class VetResponsiveTable extends LitElement {
       title: { type: String },
       headers: { type: Array },
       dataBody: { type: Array },
-      dataKeys: { type: Array }
-    }
+      dataKeys: { type: Array },
+    };
   }
 
   constructor() {
@@ -33,17 +32,18 @@ export class VetResponsiveTable extends LitElement {
       }
 
       thead {
-        background-color: var(--light-primary-color);
+        background-color: var(--light-secondary-color);
       }
 
-      :is(table) th,td  {
+      :is(table) th,
+      td {
         padding: 17px 3px;
         text-align: center;
       }
 
       tbody tr:hover {
         cursor: pointer;
-        background-color: var(--light-primary-color);
+        background-color: var(--light-secondary-color);
       }
     `;
   }
@@ -52,9 +52,7 @@ export class VetResponsiveTable extends LitElement {
     return html`
       <thead>
         <tr>
-          ${this.headers.map(h => html`
-            <th>${h}</th>
-          `)}
+          ${this.headers.map(h => html` <th>${h}</th> `)}
         </tr>
       </thead>
     `;
@@ -63,24 +61,22 @@ export class VetResponsiveTable extends LitElement {
   _handleResultClick(result) {
     const event = new CustomEvent('vet-table-record-selected', {
       bubbles: true,
-      detail: result
+      detail: result,
     });
 
     this.dispatchEvent(event);
   }
 
   _renderTableResults() {
-
     return html`
       <tbody>
-        ${this.dataBody.map((data) =>
-          html`
-            <tr @click=${() => this._handleResultClick(data)}>
-              ${this.dataKeys.map(key => html`
-                <td>${data[key]}</td>
-              `)}
-            </tr>
-          `
+        ${this.dataBody.map(
+          data =>
+            html`
+              <tr @click=${() => this._handleResultClick(data)}>
+                ${this.dataKeys.map(key => html` <td>${data[key]}</td> `)}
+              </tr>
+            `
         )}
       </tbody>
     `;
@@ -88,13 +84,12 @@ export class VetResponsiveTable extends LitElement {
 
   render() {
     return html`
-    <h2>${this.title}</h2>
-    <div class="responsive-table-wrapper">
-      <table>
-        ${this._renderTableHeaders()}
-        ${this._renderTableResults()}
-      </table>
-    </div>
+      <h2>${this.title}</h2>
+      <div class="responsive-table-wrapper">
+        <table>
+          ${this._renderTableHeaders()} ${this._renderTableResults()}
+        </table>
+      </div>
     `;
   }
 }
