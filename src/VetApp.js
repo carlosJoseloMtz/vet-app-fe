@@ -4,7 +4,7 @@ import { getRouterInstance } from './router.js';
 export class VetApp extends LitElement {
   static get properties() {
     return {
-      router: { type: Object, state: true }
+      router: { type: Object, state: true },
     };
   }
 
@@ -18,6 +18,10 @@ export class VetApp extends LitElement {
 
   static get styles() {
     return css`
+      .app-container {
+        height: 100%;
+      }
+
       #pagearea {
         padding: 0 5px;
       }
@@ -30,6 +34,23 @@ export class VetApp extends LitElement {
       @media screen and (min-width: 768px) {
         #pagearea {
           padding: 0 35px;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .app-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: stretch;
+        }
+
+        .app-container vet-menu {
+          flex-basis: 13rem;
+        }
+
+        .app-container main {
+          flex: 1;
         }
       }
     `;
@@ -45,9 +66,10 @@ export class VetApp extends LitElement {
 
   render() {
     return html`
-      ${this.renderMenu()}
-      <main id="pagearea">
-      </main>
+      <div class="app-container">
+        ${this.renderMenu()}
+        <main id="pagearea" role="main"></main>
+      </div>
     `;
   }
 }
